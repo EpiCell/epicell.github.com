@@ -22,7 +22,7 @@ $(document).ready(function() {
 	// Add the cartodb tiles
 	var cartodb_layer = {
 		getTileUrl: function(coord, zoom) {
-			return "https://examples.cartodb.com/tiles/monarch/" + zoom + "/" + coord.x + "/" + coord.y + ".png" +
+			return "https://sciencehackday-10.cartodb.com/tiles/tower_locations/" + zoom + "/" + coord.x + "/" + coord.y + ".png" +
 			"";
 		},
 		tileSize: new google.maps.Size(256, 256)
