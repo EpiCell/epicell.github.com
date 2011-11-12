@@ -14,7 +14,7 @@
 	
           //Basic
             var cartodbMapOptions = {
-              zoom: 5,
+              zoom: 3,
               center: new google.maps.LatLng( 22.7248057566452, -106.9967118782795 ),
               disableDefaultUI: true,
               mapTypeId: google.maps.MapTypeId.ROADMAP
@@ -35,8 +35,8 @@
             // Add the cartodb tiles
             var cartodb_layer = {
               getTileUrl: function(coord, zoom) {
-                return "https://examples.cartodb.com/tiles/monarch/"+zoom+"/"+coord.x+"/"+coord.y+".png" +
-          "?sql=SELECT monarch.cartodb_id, monarch.the_geom_webmercator FROM monarch, countries WHERE ST_Intersects(monarch.the_geom,countries.the_geom) AND countries.name = 'Mexico'";
+                return "https://sciencehackday-10.cartodb.com/tiles/monarch/"+zoom+"/"+coord.x+"/"+coord.y+".png" +
+          "?sql=SELECT * FROM tower_locations";
 
         },
               tileSize: new google.maps.Size(256, 256)
