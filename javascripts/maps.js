@@ -28,7 +28,7 @@ $(document).ready(function() {
 		tileSize: new google.maps.Size(256, 256)
 	};
 
-	//var cartodb_imagemaptype = new google.maps.ImageMapType(cartodb_layer);
+	var cartodb_imagemaptype = new google.maps.ImageMapType(cartodb_layer);
 
-	//carto_map.overlayMapTypes.insertAt(0, cartodb_imagemaptype);
+	carto_map.overlayMapTypes.insertAt(0, cartodb_imagemaptype);
 });
