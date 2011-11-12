@@ -2,7 +2,7 @@ $(document).ready(function() {
 	//Basic
 	var cartodbMapOptions = {
 		zoom: 5,
-		center: new google.maps.LatLng( 22.7248057566452, -106.9967118782795 ),
+		center: new google.maps.LatLng( 10, 0 ),
 		disableDefaultUI: true,
 		mapTypeId: google.maps.MapTypeId.ROADMAP
 	};
