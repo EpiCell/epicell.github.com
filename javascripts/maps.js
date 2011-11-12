@@ -1,8 +1,8 @@
 $(document).ready(function() {
 	//Basic
 	var cartodbMapOptions = {
-		zoom: 2,
-		center: new google.maps.LatLng( 10, 0 ),
+		zoom: 3,
+		center: new google.maps.LatLng( 20, 20 ),
 		disableDefaultUI: true,
 		mapTypeId: google.maps.MapTypeId.ROADMAP
 	};
@@ -22,13 +22,29 @@ $(document).ready(function() {
 	// Add the cartodb tiles
 	var cartodb_layer = {
 		getTileUrl: function(coord, zoom) {
-			return "https://sciencehackday-10.cartodb.com/tiles/tower_locations/" + zoom + "/" + coord.x + "/" + coord.y + ".png" +
+			return "https://sciencehackday-10.cartodb.com/tiles/tower_locations_signals/" + zoom + "/" + coord.x + "/" + coord.y + ".png" +
 			"";
 		},
 		tileSize: new google.maps.Size(256, 256)
 	};
+	
+	
+	// Add the cartodb tiles
+	var cell_layer = {
+		getTileUrl: function(coord, zoom) {
+			return "http://opensignalmaps.com/app/getimage.php?"+"zoom="+zoom+"&x="+coord.x+"&y="+coord.y+"&netwkID=all&client=auth1ZA294CK772Q4clnt294ri6Qa9";
+		},
+		tileSize: new google.maps.Size(256, 256),
+		opacity: 0.15
+	};
+ 
+ 
+	var cell_imagemaptype = new google.maps.ImageMapType(cell_layer);
 
+	carto_map.overlayMapTypes.insertAt(0, cell_imagemaptype);
+	
 	var cartodb_imagemaptype = new google.maps.ImageMapType(cartodb_layer);
 
-	carto_map.overlayMapTypes.insertAt(0, cartodb_imagemaptype);
+	carto_map.overlayMapTypes.insertAt(1, cartodb_imagemaptype);
+	
 });

@@ -561,42 +561,9 @@ function generateLink() {
 
 $(document).ready(function() { 
     
-    //$('#search').prepend('<div style="background-color:#33BC33; height:23px; color: #fff; padding:10px 10px 5px 10px; margin-bottom:15px; font-size:14px; border: 5px solid #bbb;">We just got TechCrunch\'d and our server\'s running slow, so please be patient. Check out <a style="color:#fff; text-decoration: underline;" href="http://www.twitter.com/opensignalmaps">@opensignalmaps</a> for updates!</div>');
-    //$('#search').css('margin-top','30px');
-    //$('.clearboth:eq(1)').css('height','10px');
-    for(i in filtersArr["netwkID"]) {
-        filtersArr["netwkID"][i] = parseInt(filtersArr["netwkID"][i], 10);
-    }
     $(function(){
     
-        $('.clearField').clearField();
-    
         mapInit();
-        
-        $("#controlBarToggle").live("click", function(){
-            if ($("#map-control-body").hasClass('hidden')) { 
-                $("#controlBarToggle").html('<img src="https://s3.amazonaws.com/osmwww/images/arrow-up.png" />');
-            } else {
-                $("#controlBarToggle").html('<img src="https://s3.amazonaws.com/osmwww/images/arrow-down.png" />');
-            }
-            $("#map-control-bar").toggleClass('bot-brdr');
-            $("#map-control-body").toggleClass('hidden');
-        });
-        
-        $(".controlZoom").live("click", function(){
-            var zoomDir=$(this).attr('id');
-            var zoom=parseFloat(map.getZoom());
-            if (zoomDir=="zoomOut") { map.setZoom(zoom-1); } else { map.setZoom(zoom+1); }
-        });
-        
-        $("#controlBarFullScrn").live("click", function(){
-            var currentCenter=map.getCenter();
-            $("#map").toggleClass('fullscreen');
-            var cssPos = $("#map").css('position');
-            if (cssPos!='fixed') { $("#map").css('position', 'fixed'); } else { $("#map").css('position', 'relative'); }
-            google.maps.event.trigger(map, "resize");
-            map.setCenter(currentCenter);
-        });
         
         // "live" bind click event
         //$("#markers a").live("click", function(){
@@ -606,25 +573,4 @@ $(document).ready(function() {
         //  arrInfoWindows[i].open(map, arrMarkers[i]);
         //});
     });
-    
-    $('form#getLocation').submit(function() {
-        
-        var address=$(this).children('input[name=address]').val();
-        geocoder.geocode( {'address': address }, function(results, status) {
-            if (status == google.maps.GeocoderStatus.OK) {
-                map.setCenter(results[0].geometry.location);
-              } else {
-                alert('Unable to locate address.  Please try again.');
-              }
-            //$('#search').append('LOCATION FOUND:'+results[0].formatted_address+' ');
-        });
-        return false;
-    });
-    
-    $('#generatelink').click(function() { // NO LONGER USED
-    
-        generateLink();
-        return false;
-    });
-    
 });
