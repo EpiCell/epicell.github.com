@@ -115,7 +115,10 @@ function setUpCountryInfo(data){
     var country_name =data.rows[0].country_or_area;
     console.log(data);
     $("#country").html(country_name);
+<<<<<<< HEAD
     $("#phone_count").html((data.rows[0].value*10/100).toFixed(2)+"%");
+=======
+>>>>>>> 8b3860defc95d3444f05238b8b3e740fb3746273
     $.each(data.rows ,function(index, record){
         if(record.value != 0){
             years.push( record.year);
