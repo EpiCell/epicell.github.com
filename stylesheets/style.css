@@ -14,3 +14,7 @@
 #overlayDiv{
 	display:none;
 }
+
+#maps-large {
+	display: none;
+}
