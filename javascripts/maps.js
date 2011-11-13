@@ -129,6 +129,7 @@ function setUpCountryInfo(data){
     var country_name =data.rows[0].country;
     $("#country").html(country_name);
     $("#phone_count").html((data.rows[0].value*1).toFixed(2)+"%");
+    $("#gdp").html((data.rows[0].gdp)+"%");
     $.each(data.rows ,function(index, record){
         console.log(typeof record.year)
         if(record.value != 0){
