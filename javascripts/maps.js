@@ -52,8 +52,6 @@ $(document).ready(function() {
 
 	carto_map.overlayMapTypes.insertAt(0, cell_imagemaptype);
 	
-	
-	
 	/*
 	var cartodb_imagemaptype = new google.maps.ImageMapType(cartodb_layer);
 
@@ -70,7 +68,7 @@ $(document).ready(function() {
        map: carto_map,
        user_name:'sciencehackday-10',
        table_name: table2,
-       query: "SELECT * FROM "+ table2,
+       query: "SELECT cartodb_id, ST_Buffer(the_geom_webmercator,35000) as the_geom_webmercator FROM "+ table2,
        map_style: false,
        infowindow: false,
        auto_bound: false,
