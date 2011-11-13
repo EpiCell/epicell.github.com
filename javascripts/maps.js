@@ -15,7 +15,7 @@ $(document).ready(function() {
 	
     var country_outline = null;
     var outlineURL = "";
-    google.maps.event.addListener(carto_map, 'bounds_changed', function() {
+    var dragend = function() {
          var center= carto_map.getCenter();
          // console.log("cent is ");
          //                 console.log(center.lat()+" "+center.lng())
@@ -40,8 +40,9 @@ $(document).ready(function() {
 	var cartodb_country_outline = new google.maps.ImageMapType(cartodb_country);
 	carto_map.overlayMapTypes.setAt("0", cartodb_country_outline);
          
-    });
-
+    }
+    google.maps.event.addListener(carto_map, 'dragend', dragend);
+    dragend();
 	var map_style = [ { stylers: [ { saturation: -65 }, { gamma: 1.52 } ] }, { featureType: "administrative", stylers: [ { saturation: -95 },{ gamma: 2.26 } ] },
 	{ featureType: "water", elementType: "labels", stylers: [ { visibility: "off" } ] },{ featureType: "administrative.locality", stylers: [ { visibility: 'off' } ] },
 	{ featureType: "road", stylers: [ { visibility: "simplified" }, { saturation: -99 }, { gamma: 2.22 } ] }, { featureType: "poi", elementType: "labels", stylers: [ { visibility: "off" } ] },
