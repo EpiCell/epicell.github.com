@@ -43,25 +43,50 @@
         <div class="container">
           <a class="brand" href="#">EpiCell</a>
           <ul class="nav">
-            <li class="active"><a href="#overview">About</a></li>
-            <li class="dropdown" data-dropdown="dropdown">
-              <a href="#" class="dropdown-toggle">Maps</a>
-              <ul class="dropdown-menu">
-                <li><a href="#malaria-map">Malaria Map</a></li>
-                
-                
-                <!-- <li><a href="#malaria-map-2">Malaria Map 2</a></li> -->
-                <!-- <li class="divider"></li> -->
-                <!-- <li><a href="#malaria-map-3">Malaria Map 3</a></li> -->
-              </ul>
-            </li>
+            <li ><a href="#about">About</a></li>
+            <li class="active"><a href="#malaria-map">Map</a></li>
             <li><a href="#team">Team</a></li>
             <li><a href="#team">Thanks</a></li>
           </ul>
         </div>
       </div>
     </div><!-- /div.topbar -->
-    <header class="jumbotron masthead" id="overview" >
+      <!--<section id="maps-small">
+        <div class="page-header">
+          <h1>Maps <small>Explore example data sets.</small></h1>
+        </div>
+        <div class="row">
+          <div class="span4">
+            <h2>Map Preview 1</h2>
+            <div width="200" height="200" id="malaria-map-small"></div>
+          </div>
+          <div class="span4">
+            <h2>Map Preview 2</h2>
+            <div width="200" height="200" id="malaria-map-2-small"></div>
+          </div>
+          <div class="span4">
+            <h2>Map Preview 3</h2>
+            <div width="200" height="200" id="malaria-map-3-small"></div>
+          </div>
+          <div class="span4">
+            <h2>Map Preview 4</h2>
+            <div width="200" height="200" id="malaria-map-3-small"></div>
+          </div>
+        </div>
+      </section>-->
+
+      <section id="map">
+          <div  id="malaria-map" >
+              <p>Check out <a href="https://github.com/EpiCell">EpiCell</a> on GitHub!</p>
+          </div>
+          <div class="info">
+			<div id="malaria-map-detail">
+				<ul><h3>Map Detail</h3><li>Country: <span id="country">UNKNOWN</span></li></ul>
+			</div>
+		  </div>
+      </section><!-- /section#maps -->
+
+    <section id="overview" >
       <div class="inner">
         <div class="container">
           <h1>Epicell, Created at SF Science Hack Day 2011</h1>
@@ -70,11 +95,11 @@
           </p>
         </div><!-- /div.container -->
       </div>
-    </header> <!-- /header -->
+    </section> <!-- /header -->
 
     <div class="container">
-      <section id="about">
-        <div class="page-header">
+      <section >
+        <div class="page-header" id="about">
           <h1>About <small>the hack</small></h1>
         </div>
         <div class="row">
@@ -102,49 +127,6 @@
           </div>
 		</div>
       </section><!-- /section#about -->
-
-      <!--<section id="maps-small">
-        <div class="page-header">
-          <h1>Maps <small>Explore example data sets.</small></h1>
-        </div>
-        <div class="row">
-          <div class="span4">
-            <h2>Map Preview 1</h2>
-            <div width="200" height="200" id="malaria-map-small"></div>
-          </div>
-          <div class="span4">
-            <h2>Map Preview 2</h2>
-            <div width="200" height="200" id="malaria-map-2-small"></div>
-          </div>
-          <div class="span4">
-            <h2>Map Preview 3</h2>
-            <div width="200" height="200" id="malaria-map-3-small"></div>
-          </div>
-          <div class="span4">
-            <h2>Map Preview 4</h2>
-            <div width="200" height="200" id="malaria-map-3-small"></div>
-          </div>
-        </div>
-      </section>-->
-
-      <section id="maps">
-        <div class="page-header">
-          <h1>Maps <small>Explore example data sets.</small></h1>
-        </div>
-        <div class="row">
-          <div >
-            <div class="map-container">
-              <h2>Malaria Map</h2>
-              
-              <div  id="malaria-map" class="span16" >
-                  <p>Check out <a href="https://github.com/EpiCell">EpiCell</a> on GitHub!</p>
-              </div>
-            </div>
-          </div>
-          
-          <div class="span3"><div id="malaria-map-detail"><ul><h3>Map Detail</h3><li>Country: <span id="country">UNKNOWN</span></li></ul></div></div>
-        </div>
-      </section><!-- /section#maps -->
 
       <section id="team">
         <div class="page-header">

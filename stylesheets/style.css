@@ -3,32 +3,29 @@ body{
     margin: 0;
     width: 100%;
 }
-#maps {
+#map {
+    position: relative;
     padding: 0;
     margin: 0;
 	width: 100%;
 	height: 100%;
 }
-#maps .row {
+#map #malaria-map {
+    position: relative;
+    float: left;
     padding: 0;
     margin: 0;
 	width: 100%;
 	height: 100%;
 }
-#maps .row .map-container {
-    padding: 0;
-    margin: 0;
-    width: 100%;
-    height: 500px;
+#map .info{
+    position: absolute;
+    top: 50px;
+    right: 10px;
+    width: 200px;
+    height: 90%;
+    border: 1px solid black;
 }
-
-#maps .row .map-container #malaria-map {
-    padding: 0;
-    margin: 0;
-	width: 100%;
-	height: 100%;
-}
-
 #overlayDiv{
 	display:none;
 }
