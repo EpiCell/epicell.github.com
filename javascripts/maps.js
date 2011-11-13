@@ -33,7 +33,7 @@ $(document).ready(function() {
 	var cartodb_country = {
 		getTileUrl: function(coord, zoom) {
 			return "https://sciencehackday-10.cartodb.com/tiles/countries/" + zoom + "/" + coord.x + "/" + coord.y + ".png" +
-			"?sql=SELECT * FROM countries WHERE ST_Intersects(the_geom,GeometryFromText('Point("+center.lng()+" "+center.lat()+")',4326))";
+			"?sql=SELECT * FROM countries WHERE ST_Intersects(the_geom,GeometryFromText('Point("+center.lng()+" "+center.lat()+")',4326)) LIMIT 1";
 		},
 		tileSize: new google.maps.Size(256, 256)
 	};
