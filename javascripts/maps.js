@@ -109,7 +109,7 @@ $(document).ready(function() {
      
 });
 
-function plotMap(data){
+function plotGraph(data){
    console.log(data);
    $.plot($("#phone_take_up_plot"),[data]);
   }
@@ -126,7 +126,7 @@ function setUpCountryInfo(data){
             plot_data.push([record.year,record.value]);
         }
     });
-    plotMap(plot_data);
+    plotGraph(plot_data);
     
 
 }
