@@ -111,16 +111,26 @@ $(document).ready(function() {
 
 function plotGraph(data){
    
-   $.plot($("#phone_take_up_plot"),[data]);
+   $.plot($("#phone_take_up_plot"),[data], {
+       xaxis:{
+           color: 'white',
+           label:"year"
+       },
+       yaxis:{
+           color:'white',
+           label: "% of population with phones"
+       }
+   });
   }
   
 function setUpCountryInfo(data){
     var plot_data=[];
+    console.log(data);
     var country_name =data.rows[0].country;
     $("#country").html(country_name);
-    $("#phone_count").html((data.rows[0].value*10/100).toFixed(2)+"%");
-    $("#")
+    $("#phone_count").html((data.rows[0].value*1).toFixed(2)+"%");
     $.each(data.rows ,function(index, record){
+        console.log(typeof record.year)
         if(record.value != 0){
             plot_data.push([record.year,record.value]);
         }
