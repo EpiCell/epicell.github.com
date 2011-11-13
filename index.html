@@ -1,0 +1,201 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="en">
+  <head>
+    <meta charset=utf-8 />
+    <title>EpiCell</title>
+
+    <link href="http://code.google.com/apis/maps/documentation/javascript/examples/default.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css">
+    <link rel="stylesheet" href="stylesheets/style.css">
+    
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?v=3.5&sensor=false"></script>
+    <script type="text/javascript" src="javascripts/maps.js"></script>
+    <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+    <script src="http://cdn.simplegeo.com/js/1.2/simplegeo.context.jq.min.js"></script>
+    <script type="text/javascript" src="http://vizzuality.github.com/cartodb-gmapsv3/wax.g.js"></script>
+    <script type="text/javascript" src="http://vizzuality.github.com/cartodb-gmapsv3/cartodb-gmapsv3.js"></script>
+
+    <!-- Google Maps Javascripts -->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+
+    <!-- Twitter Bootstrap Javascripts -->
+    <script src="http://twitter.github.com/bootstrap/1.4.0/bootstrap-dropdown.js"></script>
+    <script src="http://twitter.github.com/bootstrap/1.4.0/bootstrap-twipsy.js"></script>
+    <script src="http://twitter.github.com/bootstrap/1.4.0/bootstrap-popover.js"></script>
+    <script src="http://twitter.github.com/bootstrap/1.4.0/bootstrap-scrollspy.js"></script>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?v=3.5&sensor=false"></script>
+    <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+    <script src="http://cdn.simplegeo.com/js/1.2/simplegeo.context.jq.min.js"></script>
+
+    <script type="text/javascript" src="javascripts/maps.js"></script>
+  </head>
+  <body>
+
+    <div class="topbar" data-scrollspy="scrollspy" >
+      <div class="topbar-inner">
+        <div class="container">
+          <a class="brand" href="#">EpiCell</a>
+          <ul class="nav">
+            <li class="active"><a href="#overview">About</a></li>
+            <li class="dropdown" data-dropdown="dropdown">
+              <a href="#" class="dropdown-toggle">Maps</a>
+              <ul class="dropdown-menu">
+                <li><a href="#malaria-map">Malaria Map</a></li>
+                
+                
+                <!-- <li><a href="#malaria-map-2">Malaria Map 2</a></li> -->
+                <!-- <li class="divider"></li> -->
+                <!-- <li><a href="#malaria-map-3">Malaria Map 3</a></li> -->
+              </ul>
+            </li>
+            <li><a href="#team">Team</a></li>
+            <li><a href="#team">Thanks</a></li>
+          </ul>
+        </div>
+      </div>
+    </div><!-- /div.topbar -->
+    <header class="jumbotron masthead" id="overview">
+      <div class="inner">
+        <div class="container">
+          <h1>Epicell, Created at SF Science Hack Day 2011</h1>
+          <p class="lead">
+          EpiCell is an experiment in discovering ideal geographic regions for CellScope deployment.<br />
+          </p>
+        </div><!-- /div.container -->
+      </div>
+    </header><!-- /header -->
+
+    <div class="container">
+      <section id="about">
+        <div class="page-header">
+          <h1>About <small>the hack</small></h1>
+        </div>
+        <div class="row">
+          <div class="span4">
+            <h2>EpiCell</h2>
+            <p><a href="https://github.com/organizations/EpiCell">EpiCell</a> was created by a team of individuals working together during <a href="http://sf.sciencehackday.com/">SF Science Hack Day 2011</a>.</p>
+          </div>
+          <div class="span4">
+            <h2>CartoDB</h2>
+            <p><a href="https://cartodb.com/">CartoDB</a> is an <a href="https://github.com/vizzuality/cartodb">open source</a> geospatial database in the cloud hosted by <a href="http://vizzuality.com">Vizzuality</a>.</p>
+          </div>
+          <div class="span4">
+            <h2>OpenData</h2>
+            <p>We sought, scrubbed, and massaged OpenData</p>
+            <ul>
+              <li><a href="http://data.un.org/Data.aspx?q=mobile&d=ITU&f=ind1Code%3aI911">Mobile cellular subscriptions per 100 inhabitants</a></li>
+              <li><a href="http://maplecroft.com/portfolio/mapping/maplecroft/?initial_map_slug=gr_malaria_risk_2011">Malaria Risk Index</a></li>
+              <li><a href="http://www.cellmapper.net/world.php">Cell phone towers around the world</a></li>
+              <li><a href="https://sciencehackday-10.cartodb.com/dashboard">CartoDB Hosted Data</a></li>
+            <ul>
+          </div>
+          <div class="span4">
+            <h2>CellScope</h2>
+            <p>Inspired by <a href="http://cellscope.berkeley.edu/">CellScope</a>, a project the turns your mobile phone into a powerful microscope.</p>
+          </div>
+      </section><!-- /section#about -->
+
+      <section id="maps-small">
+        <div class="page-header">
+          <h1>Maps <small>Explore example data sets.</small></h1>
+        </div>
+        <div class="row">
+          <div class="span4">
+            <h2>Map Preview 1</h2>
+            <div width="200" height="200" id="malaria-map-small"></div>
+          </div>
+          <div class="span4">
+            <h2>Map Preview 2</h2>
+            <div width="200" height="200" id="malaria-map-2-small"></div>
+          </div>
+          <div class="span4">
+            <h2>Map Preview 3</h2>
+            <div width="200" height="200" id="malaria-map-3-small"></div>
+          </div>
+          <div class="span4">
+            <h2>Map Preview 4</h2>
+            <div width="200" height="200" id="malaria-map-3-small"></div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="page-header">
+          <h1>Maps <small>Explore example data sets.</small></h1>
+        </div>
+        <div class="row">
+          
+          <div class="span13">
+            <div class="map-container">
+              <h2>Malaria Map</h2>
+              
+              <div  id="malaria-map" >
+                  <p>Check out <a href="https://github.com/EpiCell">EpiCell</a> on GitHub!</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="span3"><div id="malaria-map-detail"><ul><h3>Map Detail</h3><li>Country: <span id="country">UNKNOWN</span></li></ul></div></div>
+        </div>
+      </section><!-- /section#maps -->
+
+      <section id="team">
+        <div class="page-header">
+          <h1>Team <small>Who is EpiCell?</small></h1>
+        </div>
+        <div class="container">
+          <h2>GitHub</h2>
+        </div><!-- /div.map-container -->
+        <div class="container">
+          <h2>Team Members</h2>
+          <div width="200" height="200" id="malaria-map">
+            <p>We are:</p>
+            <ul>
+              <li>Aaron Steele: <a href="http://twitter.com/eightysteele">@eightysteele</a></li>
+              <li>Andrew Hill: <a href="http://twitter.com/andrewxhill">@andrewxhill</a></li>
+              <li>Arfon Smith: <a href="http://twitter.com/arfon">@arfon</a></li>
+              <li>Julia Bossmann: <a href="http://twitter.com/juliabossmann">@juliabossmann/a></li>
+              <li>Nancy Burgess: <a href="https://github.com/NancyB">NancyB</a></li>
+              <li>Roman Gurovich: <a href="http://twitter.com/romangurovich">@romangurovich</a></li>
+              <li>Ryan Balfanz: <a href="http://twitter.com/RyanBalfanz">@RyanBalfanz</a></li>
+              <li>Stuart Lynn: <a href="http://twitter.com/stuart_lynn">@stuart_lynn</a></li>
+            </ul>
+          </div>
+        </div><!-- /div.map-container -->
+      </section><!-- /section -->
+
+      <section id="special-thanks">
+        <div class="page-header">
+          <h1>Special Thanks <small>We could not have done it without you. ☺</small></h1>
+        </div>
+        <div class="container">
+          <h2>CartoDB</h2>
+            <p>Check out <a href="https://github.com/EpiCell">CartoDB</a> for all your Geospatial database visualization needs!</p>
+        </div>
+        <div class="container">
+          <h2>Science Hack Day</h2>
+            <p><a href="http://sf.sciencehackday.com/">SF Science Hack Day 2011</a> was a blast!</p>
+        </div>
+      </section><!-- /section -->
+    </div><!-- /div.container -->
+
+    <!-- Large maps for more Awesomesuace! -->
+    <section id="maps-large">
+      <div class="page-header">
+        <h1>Moar Bigger Maps <small>Check 'em out!</small></h1>
+      </div>
+      <div class="map-container">
+        <h2>Malaria Map <small>Large View</small></h2>
+        <div width="200" height="200" id="malaria-map"></div>
+      </div><!-- /div.map-container -->
+    </section><!-- /section -->
+
+  </body>
+</html>
