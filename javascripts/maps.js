@@ -11,9 +11,10 @@ $(document).ready(function() {
 
 	// Init the map
 	var carto_map = new google.maps.Map(document.getElementById(mapid), cartodbMapOptions);
-	carto_map.overlayMapTypes.push(null);
-    var countryOutline = null;
-    
+	carto_map.overlayMapTypes.insertAt("0", null);
+	
+    var country_outline = null;
+    var outlineURL = "";
     google.maps.event.addListener(carto_map, 'bounds_changed', function() {
          var center= carto_map.getCenter();
          // console.log("cent is ");
@@ -23,6 +24,7 @@ $(document).ready(function() {
          $.getJSON("http://sciencehackday-10.cartodb.com/api/v1/sql?q="+query+"&callback=?", function(data){
                  setUpCountryInfo(data);
          });
+         
     });
 
 	var map_style = [ { stylers: [ { saturation: -65 }, { gamma: 1.52 } ] }, { featureType: "administrative", stylers: [ { saturation: -95 },{ gamma: 2.26 } ] },
