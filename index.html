@@ -5,14 +5,18 @@
     <meta charset=utf-8 />
     <title>EpiCell</title>
 
+    <link href="http://code.google.com/apis/maps/documentation/javascript/examples/default.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css">
     <link rel="stylesheet" href="stylesheets/style.css">
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
-  <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
-  <script type="text/javascript" src="http://maps.google.com/maps/api/js?v=3.5&sensor=false"></script>
-  <script type="text/javascript" src="javascripts/maps.js"></script>
-  <script type="text/javascript" src="http://www.google.com/jsapi"></script>
-  <script src="http://cdn.simplegeo.com/js/1.2/simplegeo.context.jq.min.js"></script>
+    
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?v=3.5&sensor=false"></script>
+    <script type="text/javascript" src="javascripts/maps.js"></script>
+    <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+    <script src="http://cdn.simplegeo.com/js/1.2/simplegeo.context.jq.min.js"></script>
+    <script type="text/javascript" src="http://vizzuality.github.com/cartodb-gmapsv3/wax.g.js"></script>
+    <script type="text/javascript" src="http://vizzuality.github.com/cartodb-gmapsv3/cartodb-gmapsv3.js"></script>
 
     <!-- Google Maps Javascripts -->
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
@@ -27,12 +31,11 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
     <script type="text/javascript" src="http://maps.google.com/maps/api/js?v=3.5&sensor=false"></script>
-    <script type="text/javascript" src="javascripts/maps.js"></script>
     <script type="text/javascript" src="http://www.google.com/jsapi"></script>
     <script src="http://cdn.simplegeo.com/js/1.2/simplegeo.context.jq.min.js"></script>
 
     <script type="text/javascript" src="javascripts/maps.js"></script>
-    <script src= "javascripts/heatMapSetup.js"></script>
+    <script src="javascripts/heatMapSetup.js"></script>
     <script src="javascripts/sigmap.js"></script>
       
   </head>
@@ -48,9 +51,9 @@
               <a href="#" class="dropdown-toggle">Maps</a>
               <ul class="dropdown-menu">
                 <li><a href="#malaria-map">Malaria Map</a></li>
-                <li><a href="#malaria-map-2">Malaria Map 2</a></li>
-                <li class="divider"></li>
-                <li><a href="#malaria-map-3">Malaria Map 3</a></li>
+                <!-- <li><a href="#malaria-map-2">Malaria Map 2</a></li> -->
+                <!-- <li class="divider"></li> -->
+                <!-- <li><a href="#malaria-map-3">Malaria Map 3</a></li> -->
               </ul>
             </li>
             <li><a href="#team">Team</a></li>
@@ -86,11 +89,12 @@
           </div>
           <div class="span4">
             <h2>OpenData</h2>
-            <p>We sought, scrubbed, and massaged open data</p>
+            <p>We sought, scrubbed, and massaged OpenData</p>
             <ul>
               <li><a href="http://data.un.org/Data.aspx?q=mobile&d=ITU&f=ind1Code%3aI911">Mobile cellular subscriptions per 100 inhabitants</a></li>
               <li><a href="http://maplecroft.com/portfolio/mapping/maplecroft/?initial_map_slug=gr_malaria_risk_2011">Malaria Risk Index</a></li>
               <li><a href="http://www.cellmapper.net/world.php">Cell phone towers around the world</a></li>
+              <li><a href="https://sciencehackday-10.cartodb.com/dashboard">CartoDB Hosted Data</a></li>
             <ul>
           </div>
           <div class="span4">
@@ -99,25 +103,38 @@
           </div>
       </section><!-- /section#about -->
 
-      <section id="maps">
+      <section id="maps-small">
         <div class="page-header">
           <h1>Maps <small>Explore example data sets.</small></h1>
         </div>
+        <div class="row">
+          <div class="span4">
+            <h2>Map Preview 1</h2>
+            <div width="200" height="200" id="malaria-map-small"></div>
+          </div>
+          <div class="span4">
+            <h2>Map Preview 2</h2>
+            <div width="200" height="200" id="malaria-map-2-small"></div>
+          </div>
+          <div class="span4">
+            <h2>Map Preview 3</h2>
+            <div width="200" height="200" id="malaria-map-3-small"></div>
+          </div>
+          <div class="span4">
+            <h2>Map Preview 4</h2>
+            <div width="200" height="200" id="malaria-map-3-small"></div>
+          </div>
+        </div>
+      </section>
 
+      <section>
+        <div class="page-header">
+          <h1>Maps <small>Explore example data sets.</small></h1>
+        </div>
         <div class="map-container">
           <h2>Malaria Map</h2>
           <div width="200" height="200" id="malaria-map"></div>
         </div><!-- /div.map-container -->
-
-        <div class="map-container">
-          <div width="200" height="200" id="second-map">Another map.</div>
-        </div><!-- /div.map-container -->
-
-        <div class="map-container">
-          <h2>Malaria Map 3</h2>
-          <div width="200" height="200" id="malaria-map-3"></div>
-        </div><!-- /div.map-container -->
-
       </section><!-- /section#maps -->
 
       <section id="team">
@@ -135,14 +152,14 @@
           <div width="200" height="200" id="malaria-map">
             <p>We are:</p>
             <ul>
-              <li>Roman: <a href="#"></a></li>
-              <li>Stuart: <a href="#"></a></li>
-              <li>Aaron: <a href="http://twitter.com/eightysteele">@eightysteele</a></li>
-              <li>Andrew: <a href="http://twitter.com/andrewxhill">@andrewxhill</a></li>
-              <li>Nancy: <a href="#"></a></li>
-              <li>Arfon: <a href="http://twitter.com/arfon">@arfon</a></li>
-              <li>Julia: <a href="#"></a></li>
-              <li>Ryan: <a href="http://twitter.com/RyanBalfanz>">@RyanBalfanz</a></li>
+              <li>Aaron Steele: <a href="http://twitter.com/eightysteele">@eightysteele</a></li>
+              <li>Andrew Hill: <a href="http://twitter.com/andrewxhill">@andrewxhill</a></li>
+              <li>Arfon Smith: <a href="http://twitter.com/arfon">@arfon</a></li>
+              <li>Julia Bossmann: <a href="https://github.com/June27">June27</a></li>
+              <li>Nancy Burgess: <a href="https://github.com/NancyB">NancyB</a></li>
+              <li>Roman Gurovich: <a href="http://twitter.com/romangurovich">@romangurovich</a></li>
+              <li>Ryan Balfanz: <a href="http://twitter.com/RyanBalfanz">@RyanBalfanz</a></li>
+              <li>Stuart Lynn: <a href="http://twitter.com/stuart_lynn">@stuart_lynn</a></li>
             </ul>
           </div>
         </div><!-- /div.map-container -->
@@ -162,6 +179,17 @@
         </div>
       </section><!-- /section -->
     </div><!-- /div.container -->
+
+    <!-- Large maps for more Awesomesuace! -->
+    <section id="maps-large">
+      <div class="page-header">
+        <h1>Moar Bigger Maps <small>Check 'em out!</small></h1>
+      </div>
+      <div class="map-container">
+        <h2>Malaria Map <small>Large View</small></h2>
+        <div width="200" height="200" id="malaria-map"></div>
+      </div><!-- /div.map-container -->
+    </section><!-- /section -->
 
   </body>
 </html>

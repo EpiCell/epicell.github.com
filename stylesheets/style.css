@@ -14,3 +14,11 @@
 #overlayDiv{
 	display:none;
 }
+
+#maps-small {
+	display: none;
+}
+
+#maps-large {
+	display: none;
+}
