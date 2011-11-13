@@ -1,3 +1,4 @@
+var carto_map;
 $(document).ready(function() {
 	//Basic
 	var mapid = 'malaria-map';
@@ -10,7 +11,7 @@ $(document).ready(function() {
 	};
 
 	// Init the map
-	var carto_map = new google.maps.Map(document.getElementById(mapid), cartodbMapOptions);
+	carto_map = new google.maps.Map(document.getElementById(mapid), cartodbMapOptions);
 	carto_map.overlayMapTypes.insertAt("0", null);
 	
     var country_outline = null;
@@ -43,6 +44,7 @@ $(document).ready(function() {
     }
     google.maps.event.addListener(carto_map, 'dragend', dragend);
     dragend();
+    
 	var map_style = [ { stylers: [ { saturation: -65 }, { gamma: 1.52 } ] }, { featureType: "administrative", stylers: [ { saturation: -95 },{ gamma: 2.26 } ] },
 	{ featureType: "water", elementType: "labels", stylers: [ { visibility: "off" } ] },{ featureType: "administrative.locality", stylers: [ { visibility: 'off' } ] },
 	{ featureType: "road", stylers: [ { visibility: "simplified" }, { saturation: -99 }, { gamma: 2.22 } ] }, { featureType: "poi", elementType: "labels", stylers: [ { visibility: "off" } ] },
