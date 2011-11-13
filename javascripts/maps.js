@@ -1,8 +1,8 @@
 $(document).ready(function() {
 	//Basic
 	var cartodbMapOptions = {
-		zoom: 3,
-		center: new google.maps.LatLng( 25, 25 ),
+		zoom: 5,
+		center: new google.maps.LatLng( 22, 80 ),
 		disableDefaultUI: true,
 		mapTypeId: google.maps.MapTypeId.ROADMAP
 	};
@@ -38,13 +38,50 @@ $(document).ready(function() {
 		opacity: 0.15
 	};
  
+	// Add the cartodb tiles
+	var dengue = {
+		getTileUrl: function(coord, zoom) {
+			return "https://sciencehackday-10.cartodb.com/tiles/dengue_3_months/" + zoom + "/" + coord.x + "/" + coord.y + ".png" +
+			"";
+		},
+		tileSize: new google.maps.Size(256, 256)
+	};
+	
  
 	var cell_imagemaptype = new google.maps.ImageMapType(cell_layer);
 
 	carto_map.overlayMapTypes.insertAt(0, cell_imagemaptype);
 	
+	/*
 	var cartodb_imagemaptype = new google.maps.ImageMapType(cartodb_layer);
 
 	carto_map.overlayMapTypes.insertAt(1, cartodb_imagemaptype);
 	
+	var dengue_imagemaptype = new google.maps.ImageMapType(dengue);
+
+	carto_map.overlayMapTypes.insertAt(1, dengue_imagemaptype);
+	*/
+	
+	 var table2 = 'india_towers_signals';
+     var cartodb_towers = new google.maps.CartoDBLayer({
+       map_canvas: 'map',
+       map: carto_map,
+       user_name:'sciencehackday-10',
+       table_name: table2,
+       query: "SELECT cartodb_id, ST_Buffer(the_geom_webmercator,35000) as the_geom_webmercator FROM "+ table2,
+       map_style: false,
+       infowindow: false,
+       auto_bound: false,
+     });
+	 var table = 'dengue_3_months';
+     var cartodb_dengue = new google.maps.CartoDBLayer({
+       map_canvas: 'map',
+       map: carto_map,
+       user_name:'sciencehackday-10',
+       table_name: table,
+       query: "SELECT * FROM "+ table,
+       map_style: true,
+       infowindow: true,
+       auto_bound: false,
+     });
 });
