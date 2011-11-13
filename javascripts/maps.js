@@ -1,5 +1,7 @@
 $(document).ready(function() {
 	//Basic
+	var mapid = 'malaria-map';
+	
 	var cartodbMapOptions = {
 		zoom: 5,
 		center: new google.maps.LatLng( 22, 80 ),
@@ -8,7 +10,7 @@ $(document).ready(function() {
 	};
 
 	// Init the map
-	var carto_map = new google.maps.Map(document.getElementById("malaria-map"), cartodbMapOptions);
+	var carto_map = new google.maps.Map(document.getElementById(mapid), cartodbMapOptions);
 
 	var map_style = [ { stylers: [ { saturation: -65 }, { gamma: 1.52 } ] }, { featureType: "administrative", stylers: [ { saturation: -95 },{ gamma: 2.26 } ] },
 	{ featureType: "water", elementType: "labels", stylers: [ { visibility: "off" } ] },{ featureType: "administrative.locality", stylers: [ { visibility: 'off' } ] },
@@ -22,8 +24,8 @@ $(document).ready(function() {
 	// Add the cartodb tiles
 	var cartodb_layer = {
 		getTileUrl: function(coord, zoom) {
-			return "https://sciencehackday-10.cartodb.com/tiles/tower_locations_signals/" + zoom + "/" + coord.x + "/" + coord.y + ".png" +
-			"";
+			return "https://sciencehackday-10.cartodb.com/tiles/india_towers_signals/" + zoom + "/" + coord.x + "/" + coord.y + ".png" +
+			"?sql=SELECT cartodb_id, ST_Buffer(the_geom_webmercator,35000) as the_geom_webmercator FROM india_towers_signals";
 		},
 		tileSize: new google.maps.Size(256, 256)
 	};
@@ -50,9 +52,11 @@ $(document).ready(function() {
  
 	var cell_imagemaptype = new google.maps.ImageMapType(cell_layer);
 
+
+    //carto_map.addOverlay(cell_imagemaptype);
 	carto_map.overlayMapTypes.insertAt(0, cell_imagemaptype);
 	
-	/*
+	
 	var cartodb_imagemaptype = new google.maps.ImageMapType(cartodb_layer);
 
 	carto_map.overlayMapTypes.insertAt(1, cartodb_imagemaptype);
@@ -60,11 +64,12 @@ $(document).ready(function() {
 	var dengue_imagemaptype = new google.maps.ImageMapType(dengue);
 
 	carto_map.overlayMapTypes.insertAt(1, dengue_imagemaptype);
-	*/
-	
+
+
+	/*
 	 var table2 = 'india_towers_signals';
      var cartodb_towers = new google.maps.CartoDBLayer({
-       map_canvas: 'map',
+       map_canvas: mapid,
        map: carto_map,
        user_name:'sciencehackday-10',
        table_name: table2,
@@ -73,15 +78,17 @@ $(document).ready(function() {
        infowindow: false,
        auto_bound: false,
      });
+     
 	 var table = 'dengue_3_months';
      var cartodb_dengue = new google.maps.CartoDBLayer({
-       map_canvas: 'map',
+       map_canvas: mapid,
        map: carto_map,
        user_name:'sciencehackday-10',
        table_name: table,
-       query: "SELECT * FROM "+ table,
-       map_style: true,
-       infowindow: true,
+       query: "SELECT * FROM dengue_3_months",
+       map_style: false,
+       infowindow: false,
        auto_bound: false,
      });
+     */
 });
