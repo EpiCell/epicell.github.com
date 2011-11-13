@@ -109,9 +109,13 @@ $(document).ready(function() {
      
 });
 
+function plotMap(data){
+   console.log(data);
+   $.plot($("#phone_take_up_plot"),[data]);
+  }
+  
 function setUpCountryInfo(data){
-    var years=[];
-    var values=[];
+    var plot_data=[];
     var country_name =data.rows[0].country_or_area;
     console.log(data);
     $("#country").html(country_name);
@@ -119,11 +123,10 @@ function setUpCountryInfo(data){
 
     $.each(data.rows ,function(index, record){
         if(record.value != 0){
-            years.push( record.year);
-            values.push(record.value);
+            plot_data.push([record.year,record.value]);
         }
     });
-    
+    plotMap(plot_data);
     
 
 }
