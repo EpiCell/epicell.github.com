@@ -11,17 +11,19 @@ $(document).ready(function() {
 
 	// Init the map
 	var carto_map = new google.maps.Map(document.getElementById(mapid), cartodbMapOptions);
-
+	carto_map.overlayMapTypes.push(null);
+    var countryOutline = null;
+    
     google.maps.event.addListener(carto_map, 'bounds_changed', function() {
-                 var center= carto_map.getCenter();
-                 // console.log("cent is ");
-                 //                 console.log(center.lat()+" "+center.lng())
-                 var query = "SELECT mpc.country_or_area as country , mpc.value as value, mpc.year as year, gdp.value as gdp, countries.pop_est as population FROM mobile_per_country as mpc , undata_2006_healthcare_spent_percent_of_gdp as gdp, countries WHERE  countries.name = mpc.country_or_area and gdp.country_or_area= mpc.country_or_area and mpc.country_or_area = (SELECT name FROM countries WHERE ST_Intersects(the_geom,GeometryFromText('Point("+center.lng()+" "+center.lat()+")',4326)))"
-                 // console.log(query);
-                 $.getJSON("http://sciencehackday-10.cartodb.com/api/v1/sql?q="+query+"&callback=?", function(data){
-                         setUpCountryInfo(data);
-                 });
-             });
+         var center= carto_map.getCenter();
+         // console.log("cent is ");
+         //                 console.log(center.lat()+" "+center.lng())
+         var query = "SELECT mpc.country_or_area as country , mpc.value as value, mpc.year as year, gdp.value as gdp, countries.pop_est as population FROM mobile_per_country as mpc , undata_2006_healthcare_spent_percent_of_gdp as gdp, countries WHERE  countries.name = mpc.country_or_area and gdp.country_or_area= mpc.country_or_area and mpc.country_or_area = (SELECT name FROM countries WHERE ST_Intersects(the_geom,GeometryFromText('Point("+center.lng()+" "+center.lat()+")',4326)))"
+         // console.log(query);
+         $.getJSON("http://sciencehackday-10.cartodb.com/api/v1/sql?q="+query+"&callback=?", function(data){
+                 setUpCountryInfo(data);
+         });
+    });
 
 	var map_style = [ { stylers: [ { saturation: -65 }, { gamma: 1.52 } ] }, { featureType: "administrative", stylers: [ { saturation: -95 },{ gamma: 2.26 } ] },
 	{ featureType: "water", elementType: "labels", stylers: [ { visibility: "off" } ] },{ featureType: "administrative.locality", stylers: [ { visibility: 'off' } ] },
@@ -65,17 +67,17 @@ $(document).ready(function() {
 
 
     //carto_map.addOverlay(cell_imagemaptype);
-	carto_map.overlayMapTypes.insertAt(0, cell_imagemaptype);
+	carto_map.overlayMapTypes.insertAt(1, cell_imagemaptype);
 	
 	
 	var cartodb_imagemaptype = new google.maps.ImageMapType(cartodb_layer);
 
-	carto_map.overlayMapTypes.insertAt(1, cartodb_imagemaptype);
+	carto_map.overlayMapTypes.insertAt(2, cartodb_imagemaptype);
 	
 
 	var dengue_imagemaptype = new google.maps.ImageMapType(dengue);
 
-	carto_map.overlayMapTypes.insertAt(1, dengue_imagemaptype);
+	carto_map.overlayMapTypes.insertAt(3, dengue_imagemaptype);
 
 
 	/*
