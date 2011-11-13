@@ -25,6 +25,21 @@ $(document).ready(function() {
                  setUpCountryInfo(data);
          });
          
+         
+         
+         
+	carto_map.overlayMapTypes.setAt("0", null);
+	// Add the cartodb tiles
+	var cartodb_country = {
+		getTileUrl: function(coord, zoom) {
+			return "https://sciencehackday-10.cartodb.com/tiles/countries/" + zoom + "/" + coord.x + "/" + coord.y + ".png" +
+			"?sql=SELECT * FROM countries WHERE ST_Intersects(the_geom,GeometryFromText('Point("+center.lng()+" "+center.lat()+")',4326))";
+		},
+		tileSize: new google.maps.Size(256, 256)
+	};
+	var cartodb_country_outline = new google.maps.ImageMapType(cartodb_country);
+	carto_map.overlayMapTypes.setAt("0", cartodb_country_outline);
+         
     });
 
 	var map_style = [ { stylers: [ { saturation: -65 }, { gamma: 1.52 } ] }, { featureType: "administrative", stylers: [ { saturation: -95 },{ gamma: 2.26 } ] },
