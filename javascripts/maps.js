@@ -115,6 +115,7 @@ function setUpCountryInfo(data){
     var country_name =data.rows[0].country_or_area;
     console.log(data);
     $("#country").html(country_name);
+    $("#phone_count").html((data.rows[0].value*10/100).toFixed(2)+"%");
     $.each(data.rows ,function(index, record){
         if(record.value != 0){
             years.push( record.year);
