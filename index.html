@@ -79,15 +79,35 @@
           <div  id="malaria-map" >
               <p>Check out <a href="https://github.com/EpiCell">EpiCell</a> on GitHub!</p>
           </div>
-          <div class="info">
-			<div id="malaria-map-detail">
-              <h3>Map Detail</h3>
-              <ul id='details'>
-                  <li>Country: <span id="country">UNKNOWN</span></li>
-                  <li>Mobile phones per 1000 people: <span id="phone_count">UNKNOWN</span></li>
-                  <li><div id='phone_take_up_plot' style="width:408px;height:200px"></div>
-              </ul>
-            </div>
+          <div class="details">
+	          <div class="info">
+				<div id="malaria-map-detail">
+	              <h3>Country Details</h3>
+	              <ul id='details'>
+	                  <li>Name: <span id="country">UNKNOWN</span></li>
+	                  <li>Pop.: <span id="country">UNKNOWN</span></li>
+	                  <li>Health: <span id="phone_count">UNKNOWN</span></li>
+	              </ul>
+	            </div>
+			  </div>
+	          <div class="info">
+				<div id="malaria-map-detail">
+	              <h3>Phone Use</h3>
+	              <ul id='details'>
+	                  <li>Mobile phones per 1000 people: <span id="phone_count">UNKNOWN</span></li>
+	              </ul>
+	            </div>
+			  </div>
+	          <div class="graph">
+	              <h3>Phone Uptake</h3>
+			 	<div id='phone_take_up_plot' style="width:408px;height:200px"></div>
+			  </div>
+	          <div class="key">
+				<div class="obj">
+					<div class="marker"></div>
+					<div class="name"></div>
+				</div>
+			  </div>
 		  </div>
       </section><!-- /section#maps -->
 
