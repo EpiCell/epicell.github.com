@@ -12,6 +12,7 @@ $(document).ready(function() {
 	// Init the map
 	var carto_map = new google.maps.Map(document.getElementById(mapid), cartodbMapOptions);
 
+
 	var map_style = [ { stylers: [ { saturation: -65 }, { gamma: 1.52 } ] }, { featureType: "administrative", stylers: [ { saturation: -95 },{ gamma: 2.26 } ] },
 	{ featureType: "water", elementType: "labels", stylers: [ { visibility: "off" } ] },{ featureType: "administrative.locality", stylers: [ { visibility: 'off' } ] },
 	{ featureType: "road", stylers: [ { visibility: "simplified" }, { saturation: -99 }, { gamma: 2.22 } ] }, { featureType: "poi", elementType: "labels", stylers: [ { visibility: "off" } ] },
@@ -61,6 +62,7 @@ $(document).ready(function() {
 
 	carto_map.overlayMapTypes.insertAt(1, cartodb_imagemaptype);
 	
+
 	var dengue_imagemaptype = new google.maps.ImageMapType(dengue);
 
 	carto_map.overlayMapTypes.insertAt(1, dengue_imagemaptype);
@@ -91,4 +93,15 @@ $(document).ready(function() {
        auto_bound: false,
      });
      */
+     
+     google.maps.event.addListener(carto_map, 'bounds_changed', function() {
+         var center= carto_map.getCenter();
+         console.log("cent is ");
+         console.log(center.lat()+" "+center.lng())
+         var query = "SELECT * FROM mobile_per_country WHERE country_or_area = (SELECT name FROM countries WHERE ST_Intersects(the_geom,GeometryFromText('Point(20 20)',4326)))"
+         $.getJSON("http://sciencehackday-10.cartodb.com/api/v1/sql?q="+query+"&callback=?", function(data){
+                 setUpGraph();
+         });
+     });
+     
 });
