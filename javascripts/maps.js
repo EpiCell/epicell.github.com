@@ -16,7 +16,8 @@ $(document).ready(function() {
                  var center= carto_map.getCenter();
                  console.log("cent is ");
                  console.log(center.lat()+" "+center.lng())
-                 var query = "SELECT * FROM mobile_per_country WHERE country_or_area = (SELECT name FROM countries WHERE ST_Intersects(the_geom,GeometryFromText('Point(20 20)',4326)))"
+                 var query = "SELECT * FROM mobile_per_country WHERE country_or_area = (SELECT name FROM countries WHERE ST_Intersects(the_geom,GeometryFromText('Point("+center.lng()+" "+center.lat()+")',4326)))"
+                 console.log(query);
                  $.getJSON("http://sciencehackday-10.cartodb.com/api/v1/sql?q="+query+"&callback=?", function(data){
                          setUpCountryInfo(data);
                  });
@@ -112,7 +113,8 @@ function setUpCountryInfo(data){
     var years=[];
     var values=[];
     var country_name =data.rows[0].country_or_area;
-    
+    console.log(data);
+    $("#country").html(country_name);
     $.each(data.rows ,function(index, record){
         if(record.value != 0){
             years.push( record.year);
