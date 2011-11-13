@@ -1,0 +1,28 @@
+#maps {
+	width: 100%;
+	height: 100%;
+}
+.map-container {
+    width: 100%;
+    height: 500px;
+}
+#malaria-map {
+	width: 100%;
+	height: 100%;
+}
+
+#overlayDiv{
+	display:none;
+}
+
+#maps-small {
+	display: none;
+}
+
+#maps-large {
+	display: none;
+}
+
+#details{
+    list-style:none;
+}
