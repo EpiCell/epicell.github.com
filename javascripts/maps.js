@@ -4,7 +4,7 @@ $(document).ready(function() {
 	
 	var cartodbMapOptions = {
 		zoom: 5,
-		center: new google.maps.LatLng( 22, 75 ),
+		center: new google.maps.LatLng( 22, 72.5 ),
 		disableDefaultUI: true,
 		mapTypeId: google.maps.MapTypeId.ROADMAP
 	};
