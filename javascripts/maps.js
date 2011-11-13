@@ -12,6 +12,15 @@ $(document).ready(function() {
 	// Init the map
 	var carto_map = new google.maps.Map(document.getElementById(mapid), cartodbMapOptions);
 
+    google.maps.event.addListener(carto_map, 'bounds_changed', function() {
+                 var center= carto_map.getCenter();
+                 console.log("cent is ");
+                 console.log(center.lat()+" "+center.lng())
+                 var query = "SELECT * FROM mobile_per_country WHERE country_or_area = (SELECT name FROM countries WHERE ST_Intersects(the_geom,GeometryFromText('Point(20 20)',4326)))"
+                 $.getJSON("http://sciencehackday-10.cartodb.com/api/v1/sql?q="+query+"&callback=?", function(data){
+                         setUpCountryInfo(data);
+                 });
+             });
 
 	var map_style = [ { stylers: [ { saturation: -65 }, { gamma: 1.52 } ] }, { featureType: "administrative", stylers: [ { saturation: -95 },{ gamma: 2.26 } ] },
 	{ featureType: "water", elementType: "labels", stylers: [ { visibility: "off" } ] },{ featureType: "administrative.locality", stylers: [ { visibility: 'off' } ] },
@@ -94,14 +103,23 @@ $(document).ready(function() {
      });
      */
      
-     google.maps.event.addListener(carto_map, 'bounds_changed', function() {
-         var center= carto_map.getCenter();
-         console.log("cent is ");
-         console.log(center.lat()+" "+center.lng())
-         var query = "SELECT * FROM mobile_per_country WHERE country_or_area = (SELECT name FROM countries WHERE ST_Intersects(the_geom,GeometryFromText('Point(20 20)',4326)))"
-         $.getJSON("http://sciencehackday-10.cartodb.com/api/v1/sql?q="+query+"&callback=?", function(data){
-                 setUpGraph();
-         });
-     });
+     
+     
      
 });
+
+function setUpCountryInfo(data){
+    var years=[];
+    var values=[];
+    var country_name =data.rows[0].country_or_area;
+    
+    $.each(data.rows ,function(index, record){
+        if(record.value != 0){
+            years.push( record.year);
+            values.push(record.value);
+        }
+    });
+    
+    
+
+}
