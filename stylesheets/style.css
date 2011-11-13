@@ -22,3 +22,12 @@
 #maps-large {
 	display: none;
 }
+
+#malaria-map-detail{
+    position:absolute;
+    right:10px;
+    width:200px;
+    height:300px;
+    border:2px solid black;
+    z-index:1000;
+}
