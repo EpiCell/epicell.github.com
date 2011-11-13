@@ -16,7 +16,7 @@ $(document).ready(function() {
                  var center= carto_map.getCenter();
                  // console.log("cent is ");
                  //                 console.log(center.lat()+" "+center.lng())
-                 var query = "SELECT * FROM mobile_per_country WHERE country_or_area = (SELECT name FROM countries WHERE ST_Intersects(the_geom,GeometryFromText('Point("+center.lng()+" "+center.lat()+")',4326)))"
+                 var query = "SELECT mpc.country_or_area as country , mpc.value as value, mpc.year as year, gdp.value as gdp FROM mobile_per_country as mpc , undata_2006_healthcare_spent_percent_of_gdp as gdp WHERE gdp.country_or_area= mpc.country_or_area and mpc.country_or_area = (SELECT name FROM countries WHERE ST_Intersects(the_geom,GeometryFromText('Point("+center.lng()+" "+center.lat()+")',4326)))"
                  // console.log(query);
                  $.getJSON("http://sciencehackday-10.cartodb.com/api/v1/sql?q="+query+"&callback=?", function(data){
                          setUpCountryInfo(data);
@@ -116,10 +116,10 @@ function plotGraph(data){
   
 function setUpCountryInfo(data){
     var plot_data=[];
-    var country_name =data.rows[0].country_or_area;
+    var country_name =data.rows[0].country;
     $("#country").html(country_name);
     $("#phone_count").html((data.rows[0].value*10/100).toFixed(2)+"%");
-
+    $("#")
     $.each(data.rows ,function(index, record){
         if(record.value != 0){
             plot_data.push([record.year,record.value]);
