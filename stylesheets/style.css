@@ -37,3 +37,9 @@ body{
 #maps-large {
 	display: none;
 }
+
+
+#details{
+    list-style:none;
+}
+
