@@ -1,12 +1,30 @@
+body{
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
 #maps {
+    padding: 0;
+    margin: 0;
 	width: 100%;
 	height: 100%;
 }
-.map-container {
+#maps .row {
+    padding: 0;
+    margin: 0;
+	width: 100%;
+	height: 100%;
+}
+#maps .row .map-container {
+    padding: 0;
+    margin: 0;
     width: 100%;
     height: 500px;
 }
-#malaria-map {
+
+#maps .row .map-container #malaria-map {
+    padding: 0;
+    margin: 0;
 	width: 100%;
 	height: 100%;
 }
