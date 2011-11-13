@@ -18,13 +18,40 @@ body{
 	width: 100%;
 	height: 100%;
 }
-#map .info{
+#map .details{
     position: absolute;
     top: 50px;
-    right: 10px;
-    width: 280px;
-    height: 90%;
-    border: 1px solid black;
+    left: 10px;
+    width: 408px;
+    height: 85%;
+    font-family: "HelveticaNeueBlack", "HelveticaNeue-Black", "Helvetica Neue Black", "HelveticaNeue", "Helvetica Neue", 'TeXGyreHerosBold', "Arial Black", sans-serif; 
+}
+#map .details h3 {
+   font-size: 30px;
+   font-weight: bold;
+   color: #ff0087;
+   text-transform:uppercase;
+}
+#map .details .info {
+    padding: 10px;
+    position: relative;
+    float: left;
+    width: 100%;
+    margin-bottom: 5px;
+    background: rgba(0,0,0,0.8);
+}
+#map .details .info li {
+   list-style: none;
+   font-size: 18px;
+   line-height: 26px;
+   font-weight: bold;
+   color: #ff0087;
+}
+#map .details .graph{
+    float: left;
+    padding: 10px;
+    margin: 0;
+    background: rgba(0,0,0,0.8);
 }
 #overlayDiv{
 	display:none;
