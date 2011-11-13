@@ -14,10 +14,10 @@ $(document).ready(function() {
 
     google.maps.event.addListener(carto_map, 'bounds_changed', function() {
                  var center= carto_map.getCenter();
-                 console.log("cent is ");
-                 console.log(center.lat()+" "+center.lng())
+                 // console.log("cent is ");
+                 //                 console.log(center.lat()+" "+center.lng())
                  var query = "SELECT * FROM mobile_per_country WHERE country_or_area = (SELECT name FROM countries WHERE ST_Intersects(the_geom,GeometryFromText('Point("+center.lng()+" "+center.lat()+")',4326)))"
-                 console.log(query);
+                 // console.log(query);
                  $.getJSON("http://sciencehackday-10.cartodb.com/api/v1/sql?q="+query+"&callback=?", function(data){
                          setUpCountryInfo(data);
                  });
