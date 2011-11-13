@@ -16,7 +16,7 @@ $(document).ready(function() {
                  var center= carto_map.getCenter();
                  // console.log("cent is ");
                  //                 console.log(center.lat()+" "+center.lng())
-                 var query = "SELECT mpc.country_or_area as country , mpc.value as value, mpc.year as year, gdp.value as gdp FROM mobile_per_country as mpc , undata_2006_healthcare_spent_percent_of_gdp as gdp WHERE gdp.country_or_area= mpc.country_or_area and mpc.country_or_area = (SELECT name FROM countries WHERE ST_Intersects(the_geom,GeometryFromText('Point("+center.lng()+" "+center.lat()+")',4326)))"
+                 var query = "SELECT mpc.country_or_area as country , mpc.value as value, mpc.year as year, gdp.value as gdp, countries.pop_est as population FROM mobile_per_country as mpc , undata_2006_healthcare_spent_percent_of_gdp as gdp, countries WHERE  countries.name = mpc.country_or_area and gdp.country_or_area= mpc.country_or_area and mpc.country_or_area = (SELECT name FROM countries WHERE ST_Intersects(the_geom,GeometryFromText('Point("+center.lng()+" "+center.lat()+")',4326)))"
                  // console.log(query);
                  $.getJSON("http://sciencehackday-10.cartodb.com/api/v1/sql?q="+query+"&callback=?", function(data){
                          setUpCountryInfo(data);
@@ -120,7 +120,7 @@ function plotGraph(data){
            color:'white',
            label: "% of population with phones"
        }
-   });
+   }); 
   }
   
 function setUpCountryInfo(data){
@@ -130,6 +130,8 @@ function setUpCountryInfo(data){
     $("#country").html(country_name);
     $("#phone_count").html((data.rows[0].value*1).toFixed(2)+"%");
     $("#gdp").html((data.rows[0].gdp)+"%");
+    $("#population").html((data.rows[0].population)+" people");
+    
     $.each(data.rows ,function(index, record){
         console.log(typeof record.year)
         if(record.value != 0){
