@@ -1,16 +1,31 @@
-#maps {
-	width: 100%;
-	height: 100%;
-}
-.map-container {
+body{
+    padding: 0;
+    margin: 0;
     width: 100%;
-    height: 500px;
 }
-#malaria-map {
+#map {
+    position: relative;
+    padding: 0;
+    margin: 0;
 	width: 100%;
 	height: 100%;
 }
-
+#map #malaria-map {
+    position: relative;
+    float: left;
+    padding: 0;
+    margin: 0;
+	width: 100%;
+	height: 100%;
+}
+#map .info{
+    position: absolute;
+    top: 50px;
+    right: 10px;
+    width: 280px;
+    height: 90%;
+    border: 1px solid black;
+}
 #overlayDiv{
 	display:none;
 }
@@ -22,9 +37,3 @@
 #maps-large {
 	display: none;
 }
-
-
-#details{
-    list-style:none;
-}
-
