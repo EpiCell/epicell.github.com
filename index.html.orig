@@ -33,7 +33,7 @@
     <script type="text/javascript" src="http://maps.google.com/maps/api/js?v=3.5&sensor=false"></script>
     <script type="text/javascript" src="http://www.google.com/jsapi"></script>
     <script src="http://cdn.simplegeo.com/js/1.2/simplegeo.context.jq.min.js"></script>
-    <script type="text/javascript" src="javascripts/jquery.flot.js"></script>
+
     <script type="text/javascript" src="javascripts/maps.js"></script>
   </head>
   <body>
@@ -79,36 +79,15 @@
           <div  id="malaria-map" >
               <p>Check out <a href="https://github.com/EpiCell">EpiCell</a> on GitHub!</p>
           </div>
-          <div class="details">
-	          <div class="info">
-				<div id="malaria-map-detail">
-	              <h3>Country Details</h3>
-	              <ul id='details'>
-	                  <li>Name: <span id="country">UNKNOWN</span></li>
-	                  <li>Pop.: <span id="population">UNKNOWN</span></li>
-	                  <li>GDP spent on health care: <span id="gdp">UNKNOWN</span></li>
-	                  
-	              </ul>
-	            </div>
-			  </div>
-	          <div class="info">
-				<div id="malaria-map-detail">
-	              <h3>Phone Use</h3>
-	              <ul id='details'>
-	                  <li><span id="phone_count">UNKNOWN</span> of people with mobile phones</li>
-	              </ul>
-	            </div>
-			  </div>
-	          <div class="graph">
-	              <h3>Phone Uptake</h3>
-			 	<div id='phone_take_up_plot' style="width:408px;height:200px"></div>
-			  </div>
-	          <div class="key">
-				<div class="obj">
-					<div class="marker"></div>
-					<div class="name"></div>
-				</div>
-			  </div>
+          <div class="info">
+			<div id="malaria-map-detail">
+              <h3>Map Detail</h3>
+              <ul id='details'>
+                  <li>Country: <span id="country">UNKNOWN</span></li>
+                  <li>Mobile phones per 1000 people: <span id="phone_count">UNKNOWN</span></li>
+                  <li><div id='phone_take_up_plot' style="width:408px;height:200px"></div>
+              </ul>
+            </div>
 		  </div>
       </section><!-- /section#maps -->
 
@@ -154,6 +133,60 @@
 		</div>
       </section><!-- /section#about -->
 
+<<<<<<< HEAD
+      <section id="maps-small">
+        <div class="page-header">
+          <h1>Maps <small>Explore example data sets.</small></h1>
+        </div>
+        <div class="row">
+          <div class="span4">
+            <h2>Map Preview 1</h2>
+            <div width="200" height="200" id="malaria-map-small"></div>
+          </div>
+          <div class="span4">
+            <h2>Map Preview 2</h2>
+            <div width="200" height="200" id="malaria-map-2-small"></div>
+          </div>
+          <div class="span4">
+            <h2>Map Preview 3</h2>
+            <div width="200" height="200" id="malaria-map-3-small"></div>
+          </div>
+          <div class="span4">
+            <h2>Map Preview 4</h2>
+            <div width="200" height="200" id="malaria-map-3-small"></div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="page-header">
+          <h1>Maps <small>Explore example data sets.</small></h1>
+        </div>
+        <div class="row">
+          
+          <div class="span13">
+            <div class="map-container">
+              <h2>Malaria Map</h2>
+              
+              <div  id="malaria-map" >
+                  <p>Check out <a href="https://github.com/EpiCell">EpiCell</a> on GitHub!</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="span3"><div id="malaria-map-detail"><ul>
+              <h3>Map Detail</h3>
+              <ul id='details'>
+                  <li>Country: <span id="country">UNKNOWN</span></li>
+                  <li>Mobile phones per 1000 people: <span id="phone_count">UNKNOWN</span></li>
+                  <li><div id='phone_take_up_plot' style="width:250px;height:200px"></div>
+              </ul>
+          </div>
+        </div>
+      </section><!-- /section#maps -->
+
+=======
+>>>>>>> 251a3a3309ea11810b0deaa81139bf531b0b36cd
       <section id="team">
         <div class="page-header">
           <h1>Team <small>Who is EpiCell?</small></h1>
@@ -198,7 +231,7 @@
     <section id="maps-large">
       <div class="page-header">
         <h1>Moar Bigger Maps <small>Check 'em out!</small></h1>
-      </div>    
+      </div>
       <div class="map-container">
         <h2>Malaria Map <small>Large View</small></h2>
         <div width="200" height="200" id="malaria-map"></div>
