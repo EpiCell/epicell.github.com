@@ -7,12 +7,12 @@ $(document).ready(function() {
 		zoom: 5,
 		center: new google.maps.LatLng( 22, 72.5 ),
 		disableDefaultUI: true,
+		disableScrollWheelZoom: true,
 		mapTypeId: google.maps.MapTypeId.ROADMAP
 	};
 
 	// Init the map
 	carto_map = new google.maps.Map(document.getElementById(mapid), cartodbMapOptions);
-	carto_map.disableScrollWheelZoom();
 	carto_map.overlayMapTypes.insertAt("0", null);
 	
     var country_outline = null;
