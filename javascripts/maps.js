@@ -7,7 +7,7 @@ $(document).ready(function() {
 		zoom: 5,
 		center: new google.maps.LatLng( 22, 72.5 ),
 		disableDefaultUI: true,
-		disableScrollWheelZoom: true,
+		scrollwheel: false,
 		mapTypeId: google.maps.MapTypeId.ROADMAP
 	};
 
