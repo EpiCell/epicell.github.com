@@ -12,6 +12,7 @@ $(document).ready(function() {
 
 	// Init the map
 	carto_map = new google.maps.Map(document.getElementById(mapid), cartodbMapOptions);
+	carto_map.disableScrollWheelZoom();
 	carto_map.overlayMapTypes.insertAt("0", null);
 	
     var country_outline = null;
